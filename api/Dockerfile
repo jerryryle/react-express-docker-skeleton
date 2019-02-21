@@ -1,7 +1,7 @@
 FROM node:10-alpine
 
 # Create app directory
-WORKDIR /app
+WORKDIR /usr/app
 
 # Install nodemon for hot reload
 RUN npm install -g nodemon
