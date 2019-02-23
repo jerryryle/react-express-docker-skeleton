@@ -1,11 +1,26 @@
 version: '3'
+
 services:
-  server:
-    build: .
-    ports:
-      - "80:8000"
+  api:
+    build:
+      context: ./api/
+      dockerfile: Dockerfile-prod
+    command: node bin/www
+    expose:
+      - "3001"
     restart: always
-    # env_file: ./server/.env # TODO - uncomment this to auto-load your .env file!
+    # env_file: ./api/.env # TODO - uncomment this to auto-load your .env file!
     environment:
       NODE_ENV: production
-      PORT: 8000
+      PORT: 3001
+
+  nginx:
+    build:
+      context: ./client/
+      dockerfile: Dockerfile-prod
+    ports:
+      - "80:80"
+    restart: always
+    # env_file: ./nginx/.env # TODO - uncomment this to auto-load your .env file!
+    depends_on:
+      - api

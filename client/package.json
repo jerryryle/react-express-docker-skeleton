@@ -23,5 +23,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://api:3001"
+  "proxy": "http://api_dev:3001"
 }

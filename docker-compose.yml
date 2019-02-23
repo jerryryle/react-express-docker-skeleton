@@ -1,26 +1,28 @@
 version: '3'
 services:
-  api:
+  api_dev:
     build:
       context: ./api/
     command: nodemon bin/www
     volumes:
-      - ./api/:/app
-      - /app/node_modules
+      - ./api/:/usr/app
+      - /usr/app/node_modules
     ports:
       - "3001:3001"
-    # env_file: ./server/.env # TODO - uncomment this to auto-load your .env file!
+    # env_file: ./api/.env # TODO - uncomment this to auto-load your .env file!
     environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-  client:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "true"
+
+  client_dev:
     build:
       context: ./client/
     command: npm start
     volumes:
-      - ./client/:/app
-      - /app/node_modules
+      - ./client/:/usr/app
+      - /usr/app/node_modules
     depends_on:
       - api
     ports:
       - "3000:3000"
+    # env_file: ./client/.env # TODO - uncomment this to auto-load your .env file!
