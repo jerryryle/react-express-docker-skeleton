@@ -3,6 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": ""
-  }
+    "install": "npm --prefix ./api install ./api && npm --prefix ./client install ./client",
+    "dev": "docker-compose -f docker-compose.yml up -d --build",
+    "prod": "docker-compose -f docker-compose.prod.yml up -d --build",
+    "stop-dev": "docker-compose -f docker-compose.yml stop",
+    "stop-prod": "docker-compose -f docker-compose.prod.yml stop",
+    "log-dev": "docker-compose -f docker-compose.yml logs --follow --timestamps",
+    "log-prod": "docker-compose -f docker-compose.prod.yml logs --follow --timestamps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jerryryle/react-express-docker-skeleton.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jerryryle/react-express-docker-skeleton/issues"
+  },
+  "author": "Jerry Ryle",
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/jerryryle/react-express-docker-skeleton#readme"
 }
