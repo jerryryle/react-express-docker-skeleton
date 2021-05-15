@@ -1,5 +1,5 @@
 # Setup and build the client
-FROM node:10-alpine as client-build
+FROM node:16-alpine as client-build
 WORKDIR /usr/app/
 COPY package*.json ./
 RUN npm install -qy

@@ -22,7 +22,7 @@ services:
       - ./client/:/usr/app
       - /usr/app/node_modules
     depends_on:
-      - api
+      - api_dev
     ports:
       - "3000:3000"
     # env_file: ./client/.env # TODO - uncomment this to auto-load your .env file!
